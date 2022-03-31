@@ -1,4 +1,4 @@
-import { Button } from "../../utility";
+import { Button } from "../../utility/components";
 
 const Cart = () =>{
     return(

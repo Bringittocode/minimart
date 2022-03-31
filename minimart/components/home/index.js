@@ -1,38 +1,45 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { loader_state } from "../../utility/store/loader/action";
+import { FaCreditCard, FaLock, FaStore } from 'react-icons/fa';
+import {IoFlash} from 'react-icons/io5';
+import Newlyadded from "./newlyadded";
+import Recentlybrought from './recentlybrought';
+
+
+
 const Home = ()=>{
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(loader_state(false));
+    }, [])
+    
     return(
-        <div className="w-full px-4 pt-20 overflow-x-visible">
-            {/* <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+        <div className="w-full pt-2">
+            <div className="card mx-auto px-4 p-3">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 justify-items-center">
+                    <div className='flex flex-col border-warning-content rounded-md bg-red-500 justify-center w-full items-center text-white p-2 sm:p-5'>
+                        <FaLock className='text-[18px] sm:text-[25px] '/>
+                        <p className='font-extrabold font-mono text-center'>Scam free</p>
+                    </div>
+                    <div className='flex flex-col border-warning-content rounded-md bg-amber-500 justify-center w-full items-center text-white p-2 sm:p-5'>
+                        <IoFlash className='text-[18px] sm:text-[25px]'/>
+                        <p className='font-extrabold font-mono text-center'>Fastest delivery</p>
+                    </div>
+                    <div className='flex flex-col border-warning-content rounded-md bg-emerald-500 justify-center w-full items-center text-white p-2 sm:p-5'>
+                        <FaCreditCard className='text-[18px] sm:text-[25px]'/>
+                        <p className='font-extrabold font-mono text-center'>3D payment</p>
+                    </div>
+                    <div className='flex flex-col border-warning-content rounded-md bg-green-500 justify-center w-full items-center text-white p-2 sm:p-5'>
+                        <FaStore className='text-[18px] sm:text-[25px] '/>
+                        <p className='font-extrabold font-mono text-center'>New products</p>
                     </div>
                 </div>
             </div>
 
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://api.lorem.space/image/shoes?w=400&h=225" alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
-            </div> */}
+            <Newlyadded/>
+            <Recentlybrought/>
         </div>
     )
 }

@@ -1,19 +1,24 @@
 import Cart from "../cart";
+import Footer from '../footer';
+import Navbar from '../navbar';
 
-const Sidenav = (props)=>{
+const Body = (props)=>{
     return(
         <>
-            <div className="drawer fixed top-0 w-[100vw] z-30">
+            <div className="drawer">
                 <input id="my-drawer-3" type="checkbox" className="drawer-toggle"/> 
-                <div className="drawer-content h-full flex flex-col mt-[57px] pb-24">
-                    
+                <div className="drawer-content h-full flex flex-col">
+                    <Navbar/>
+                    {props.component}
+                    <Footer/>
                 </div>
 
-                <div className="drawer-side pt-[57px]">
-                    <label for="my-drawer-3" className="drawer-overlay"></label> 
+                <div className="drawer-side">
+                    <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
                     <ul className="menu p-4 overflow-y-auto w-48 sm:w-80 bg-base-100">
+                        <a className="btn btn-ghost uppercase justify-start items-start"><span className='text-warning font-bold text-xl pr-[3px]'>OAU</span></a> 
                         
-                        <div tabindex="0" className="collapse collapse-arrow bg-base-100 rounded-box bg-[hsl(220,13%,69%,0.1)]">
+                        <div tabIndex="0" className="collapse collapse-arrow bg-base-100 rounded-box bg-[hsl(220,13%,69%,0.1)]">
                             <input type="checkbox" className="peer"/>
                             <div className="collapse-title text-xl font-medium">
                                 Cart
@@ -35,4 +40,4 @@ const Sidenav = (props)=>{
 }
 
 
-export default Sidenav;
+export default Body;
